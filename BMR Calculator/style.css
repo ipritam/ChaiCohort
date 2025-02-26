@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, sans-serif;
+
+    background-color: rgb(71, 91, 91);
+
+}
+.container{
+    position: absolute;
+    left: 35%;
+    top: 18%;
+    /* background-color: red; */
+    
+}
+
+.box{
+    border: 2px solid blue;
+    width: 400px;
+    border-radius: 20px;
+    position: relative;
+    text-align: center;
+
+}
+h1{
+    padding: 15px 20px;
+    color: white;
+}
+
+.input-field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-field {
+    margin-top: 20px;
+    gap: 30px;
+}
+
+.height-card{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 30px;
+
+}
+
+.height-card #height{
+    font-size: 20px;
+    outline: none;
+    padding: 5px 5px;
+}
+
+.weight-card{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 30px;
+}
+
+.weight-card #weight{
+    font-size: 20px;
+    outline: none;
+    padding: 5px 5px;
+}
+
+.container .box #submit-btn{
+    margin-top: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 400px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.result{
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.result-number {
+    color: violet;
+    margin-bottom: 20px;
+}

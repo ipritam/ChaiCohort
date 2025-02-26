@@ -1,0 +1,191 @@
+:root {
+    --primary-blue: #3b82f6;
+    --primary-blue-dark: #2563eb;
+    --gray-800: #1f2937;
+    --neutral-400: #9ca3af;
+    --neutral-900: #111827;
+  
+    /* Dark mode variables */
+    --bg-dark: #111827;
+    --text-dark: #ffffff;
+    --border-dark: #374151;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .dark-mode-toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 40px 80px;
+    cursor: pointer;
+    padding : 16px;
+    border-radius: 25px;
+    border: none;
+    box-shadow: rgb(48, 48, 130);
+    background-color: #2563eb;
+    color: #fff;
+    font-size: 20px;
+  }
+  .hero {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+  }
+  
+  .hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    width: 70%;
+    margin-top: 100px;
+    
+  }
+  
+  .content-col h1 {
+    font-size: 80px;
+    font-weight: 700;
+  }
+  
+  .content-col p {
+    font-size: 27px;
+    font-weight: 200;
+  }
+  
+  .cta-group {
+    display: flex;
+    /* padding: 20px; */
+  }
+  
+  .sr-only {
+  }
+  
+  .input-wrapper {
+    /* padding: 20px; */
+    margin-right: 25px;
+  }
+  
+  input[type='text'] {
+    font-size: 20px;
+    padding: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(240, 236, 236);
+    border-radius: 10px;
+  }
+  
+  .demo-button {
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3b82f6;
+    color: #fff;
+  }
+  
+  .demo-button:hover {
+  }
+  
+  .brands-section {
+    margin-top: 20px;
+  }
+  
+  .trusted-by {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  
+  .brand-logos {
+    
+}
+
+.brand-logo {
+    /* gap: 30px; */
+    /* margin-right: 20px; */
+    padding: 0 15px;
+    object-fit: contain;
+  }
+  
+  .image-col {
+  }
+  
+  .hero-image {
+    border-radius: 15px
+  }
+  
+  @media (min-width: 640px) {
+    .hero {
+    }
+  
+    .content-col h1 {
+    }
+  
+    .cta-group {
+    }
+  
+    .demo-button {
+    }
+  
+    .input-wrapper {
+    }
+  
+    input[type='text'] {
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .content-col h1 {
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero {
+    }
+  
+    .hero-grid {
+    }
+  
+    .content-col h1 {
+    }
+  
+    .cta-group {
+    }
+  
+    .brands-section {
+    }
+  
+    .image-col {
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .hero-grid {
+      gap: 3rem;
+    }
+  }
+  
+  .dark-mode-toggle {
+  }
+  
+  .dark-mode-toggle:hover {
+  }
+  
+  body.dark {
+  }
+  
+  .dark-mode-toggle {
+  }
+  
+  .dark-mode-toggle:hover {
+  }
+  
+  input[type='text'].dark {
+  }
+  
+  input[type='text']::placeholder {
+  }
+  
