@@ -1,36 +1,98 @@
 const images = [
     {   
-        src : 'https://unsplash.com/photos/the-main-attraction-of-paris-and-all-of-europe-is-the-eiffel-tower-in-the-rays-of-the-setting-sun-on-the-bank-of-seine-river-with-cruise-tourist-ships-AofcIDFaraI',
+        src : 'https://plus.unsplash.com/premium_photo-1661919210043-fd847a58522d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         caption : "View of Paris"
     },
     {
-        src : 'https://unsplash.com/photos/aerial-photography-of-london-skyline-during-daytime-Oja2ty_9ZLM',
+        src : 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         caption : "View of London"
     },
     {
-        src : 'https://unsplash.com/photos/man-riding-on-boat-near-golden-mosque-dskdujAQU44',
+        src : 'https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=1536&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         caption : "View of India"},
     {
-        src : 'https://unsplash.com/photos/time-lapse-photography-of-vehicle-at-the-road-in-between-the-building-at-nighttime-aerial-photography-iPOZf3tQfHA',
+        src : 'https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         caption : "View of Germany"
     }
 ]
 
-const carouselContainer = document.getElementById('carouselTrack');
 
-images.forEach((image,index) => {
-    const img = document.createElement('img');
-    img.src = image.src;
-    img.classList.add("carousel-image");
-    if (index === 0) img.classList.add("active");
-    carouselContainer.appendChild(img);
-})
+const carouselContainer = document.getElementById('carouselTrack');
+const caption = document.getElementById('caption');
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
+const carouselNav = document.getElementById('carouselNav');
+const autoPlayButton = document.getElementById('autoPlayButton');
+const timerDisplay = document.getElementById('timerDisplay');
 
 let currentIndex = 0;
+let intervalTime = null;
+let img = document.createElement('img');
+function displayImage(){
+    carouselContainer.innerHTML = '';
+    img.src = images[currentIndex].src;
+    img.style.width = '100%';
+    carouselContainer.appendChild(img);
 
-function slideShow(index){
-    // const totalSlide = images.length;
+    caption.innerText = images[currentIndex].caption
 
-    currentIndex = index;
+    carouselIndicator()
 
 }
+
+function carouselIndicator(){
+    carouselNav.innerHTML = '';
+    images.forEach((index) => {
+        const indicator = document.createElement('button');
+        indicator.classList.add('carousel-indicator');
+        if(index == currentIndex){
+            indicator.classList.add("active");
+        }
+        indicator.addEventListener('click' , () => {
+            currentIndex = index;
+            displayImage();
+        })
+        carouselNav.appendChild(indicator)
+    })
+}
+
+function nextSlide(){
+    currentIndex = (currentIndex + 1) % images.length;
+    displayImage();
+}
+function prevSlide(){
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    displayImage();
+}
+
+function autoPlay(){
+    intervalTime = setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        displayImage();
+    },2 * 1000)
+}
+
+function stopAutoPlay(){
+    clearInterval(intervalTime);
+    intervalTime = null;
+}
+nextButton.addEventListener("click", () => {
+    nextSlide();
+  });
+  
+  prevButton.addEventListener("click", () => {
+    prevSlide();
+  });
+
+  autoPlayButton.addEventListener(('click') , () => {
+    if (autoPlayButton.innerText === 'Start Auto Play') {
+        autoPlayButton.innerText = 'Stop Auto Play'
+        autoPlay();
+    }else{
+        autoPlayButton.innerText = 'Start Auto Play'
+        stopAutoPlay()
+        timerDisplay.innerText = ''
+    }
+  })
+
+displayImage();
